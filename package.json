@@ -21,7 +21,9 @@
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
     "react-tap-event-plugin": "^0.2.1",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "superagent": "^1.4.0",
+    "superagent-promise": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^5.8.29",
