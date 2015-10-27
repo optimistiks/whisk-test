@@ -5,10 +5,11 @@ import FeedItem from '../FeedItem/FeedItem.jsx'
 class FeedList extends React.Component {
 
     render() {
-        return (<div>
-            <FeedItem />
-            <FeedItem />
-            <FeedItem />
+        return (<div className="row">
+            <div className="col-1-4"><FeedItem /></div>
+            <div className="col-1-4"><FeedItem /></div>
+            <div className="col-1-4"><FeedItem /></div>
+            <div className="col-1-4"><FeedItem /></div>
         </div>);
     }
 

@@ -13,7 +13,7 @@ var client = {
             .query({term: term})
             .then(response => response.body)
             .catch(e => {
-                console.error(e.status, e.response.body);
+                throw {status: e.status, body: e.response.body};
             });
 
     }

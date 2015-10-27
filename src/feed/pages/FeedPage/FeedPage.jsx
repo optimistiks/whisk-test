@@ -1,3 +1,4 @@
+import '../../styles/index.css';
 import React from 'react'
 import FeedSearch from '../../components/FeedSearch/FeedSearch.jsx'
 import FeedTabs from '../../components/FeedTabs/FeedTabs.jsx'
