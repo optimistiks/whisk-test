@@ -14,7 +14,7 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel',
-                query: {cacheDirectory: true}
+                query: {optional: 'runtime', cacheDirectory: true}
             },
             {test: /\.css$/, loader: 'style!css'}
         ]

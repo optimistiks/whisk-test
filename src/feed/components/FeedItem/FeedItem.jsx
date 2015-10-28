@@ -1,24 +1,36 @@
-import React from 'react'
-import RaisedButton from 'material-ui/lib/raised-button'
-import Card from 'material-ui/lib/card/card'
-import CardTitle from 'material-ui/lib/card/card-title'
-import CardMedia from 'material-ui/lib/card/card-media'
+import React from 'react';
+import {RaisedButton, CardTitle, CardMedia, FontIcon} from 'material-ui';
+import Card from 'material-ui/lib/card/card';
 
 
 class FeedItem extends React.Component {
+
+    getImgStyle() {
+        return {
+            backgroundImage: 'url(' + this.props.recipe.images[0] + ')'
+        };
+    }
 
     render() {
         return (
             <div className="feed-item">
                 <Card>
-                    <CardMedia overlay={<CardTitle title="Title" subtitle="Subtitle"/>}>
-                        <img src="http://lorempixel.com/600/337/nature/"/>
+                    <CardMedia overlay={
+                        <CardTitle
+                            title={this.props.recipe.title}
+                            subtitle={this.props.recipe.site.displayName} />
+                        }>
+                        <div className="feed-item__img"
+                             style={this.getImgStyle()}></div>
                     </CardMedia>
                 </Card>
+                <div className="feed-item__like">
+                    <FontIcon className="material-icons">favorite_border</FontIcon>
+                </div>
             </div>
         );
     }
 
 }
 
-export default FeedItem
+export default FeedItem;

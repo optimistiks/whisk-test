@@ -1,5 +1,5 @@
-import superagent from 'superagent'
-import superagentPromise from 'superagent-promise'
+import superagent from 'superagent';
+import superagentPromise from 'superagent-promise';
 
 const agent = superagentPromise(superagent, Promise);
 
@@ -11,12 +11,12 @@ const client = {
 
         try {
 
-          let response = await agent.get(URL).query({term: term}).end();
-          return response.body;
+            let response = await agent.get(URL).query({term: term}).end();
+            return response.body;
 
         } catch (exception) {
 
-          throw {status: exception.status, body: exception.response.body};
+            throw {status: exception.status, body: exception.response.body};
 
         }
 
@@ -24,4 +24,4 @@ const client = {
 
 };
 
-export default client
+export default client;

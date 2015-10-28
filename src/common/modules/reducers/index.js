@@ -1,25 +1,23 @@
-import actions from '../action-creators/index';
 import { combineReducers } from 'redux';
 
+const recipes = function (state = [], action) {
 
-const routeParams = function(state = {}, action) {
+    console.log('recipes reducer is called with', state, action);
 
-  console.log('routeParams reducer is called with', state, action);
+    switch (action.type) {
 
-  switch (action.type) {
+        case 'LOAD_RECIPES':
+            return action.payload;
 
-    case 'ROUTE_PARAMS_CHANGE':
-      return Object.assign({}, state, action.params);
+        default:
+            return state;
 
-    default:
-      return state;
-
-  }
+    }
 
 };
 
 const app = combineReducers({
-  routeParams
+    recipes
 });
 
 export default app;

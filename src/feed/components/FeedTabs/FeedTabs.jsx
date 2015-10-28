@@ -3,14 +3,14 @@ import {Tabs, Tab} from 'material-ui';
 import {History} from 'react-router';
 
 
-var FeedTabs = React.createClass({
+const FeedTabs = React.createClass({
 
         mixins: [History],
 
-      handleTabChange(value) {
-          console.log('handleTabChange', value);
-          this.history.pushState(null, `/recipes/${value}`);
-      },
+        handleTabChange(value) {
+            console.log('handleTabChange', value);
+            this.history.pushState(null, `/recipes/${value}`);
+        },
 
         render() {
 
@@ -19,23 +19,23 @@ var FeedTabs = React.createClass({
                     <Tab
                         label="Just for you"
                         value="personal"
-                        />
+                    />
                     <Tab
                         label="Seasonal"
                         value="seasonal"
-                        />
+                    />
                     <Tab
                         label="Popular now"
                         value="popular"
-                        />
+                    />
                     <Tab
                         label="Quick and easy"
                         value="quick"
-                        />
+                    />
                 </Tabs>
             </div>;
         }
 
     }
 );
-export default FeedTabs
+export default FeedTabs;

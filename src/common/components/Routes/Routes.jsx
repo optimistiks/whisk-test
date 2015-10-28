@@ -8,7 +8,7 @@ import App from '../App/App.jsx';
 import FeedPage from '../../../feed/pages/FeedPage/FeedPage.jsx';
 
 
-var Routes = (
+const Routes = (
 
     <Provider store={store}>
         <Router>
@@ -17,6 +17,7 @@ var Routes = (
             </Route>
         </Router>
     </Provider>
+
 );
 
 export default Routes;
