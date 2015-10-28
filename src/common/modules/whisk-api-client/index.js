@@ -1,20 +1,24 @@
 import superagent from 'superagent'
 import superagentPromise from 'superagent-promise'
 
-var agent = superagentPromise(superagent, Promise);
+const agent = superagentPromise(superagent, Promise);
 
-var URL = 'https://app.whisk.com/api/v2/recipes/_search';
+const URL = 'https://app.whisk.com/api/v2/recipes/_search';
 
-var client = {
+const client = {
 
-    searchRecipes (term) {
+    async searchRecipes (term) {
 
-        return agent.get(URL)
-            .query({term: term})
-            .then(response => response.body)
-            .catch(e => {
-                throw {status: e.status, body: e.response.body};
-            });
+        try {
+
+          let response = await agent.get(URL).query({term: term}).end();
+          return response.body;
+
+        } catch (exception) {
+
+          throw {status: exception.status, body: exception.response.body};
+
+        }
 
     }
 

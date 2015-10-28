@@ -10,4 +10,4 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-ReactDOM.render(<Router>{Routes}</Router>, document.getElementById('content'));
+ReactDOM.render(Routes, document.getElementById('content'));

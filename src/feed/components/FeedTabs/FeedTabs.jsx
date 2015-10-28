@@ -1,40 +1,41 @@
-import React from 'react'
-import Tabs from 'material-ui/lib/tabs/tabs'
-import Tab from 'material-ui/lib/tabs/tab'
+import React from 'react';
+import {Tabs, Tab} from 'material-ui';
+import {History} from 'react-router';
 
-class FeedTabs extends React.Component {
 
-    render() {
-        return <div>
-            <Tabs>
-                <Tab
-                    label="Just for you"
-                    route="personal"
-                    onActive={(tab) => {
-                        console.log('personal now active, route = ', tab.props.route);
-                    }}/>
-                <Tab
-                    label="Seasonal"
-                    route="seasonal"
-                    onActive={(tab) => {
-                        console.log('seasonal now active, route = ', tab.props.route);
-                    }}/>
-                <Tab
-                    label="Popular now"
-                    route="popular"
-                    onActive={(tab) => {
-                        console.log('popular now active, route = ', tab.props.route);
-                    }}/>
-                <Tab
-                    label="Quick and easy"
-                    route="quick"
-                    onActive={(tab) => {
-                        console.log('quick and easy active, route = ', tab.props.route);
-                    }}/>
-            </Tabs>
-        </div>;
+var FeedTabs = React.createClass({
+
+        mixins: [History],
+
+      handleTabChange(value) {
+          console.log('handleTabChange', value);
+          this.history.pushState(null, `/recipes/${value}`);
+      },
+
+        render() {
+
+            return <div>
+                <Tabs valueLink={{value: this.props.category, requestChange: this.handleTabChange}}>
+                    <Tab
+                        label="Just for you"
+                        value="personal"
+                        />
+                    <Tab
+                        label="Seasonal"
+                        value="seasonal"
+                        />
+                    <Tab
+                        label="Popular now"
+                        value="popular"
+                        />
+                    <Tab
+                        label="Quick and easy"
+                        value="quick"
+                        />
+                </Tabs>
+            </div>;
+        }
+
     }
-
-}
-
+);
 export default FeedTabs

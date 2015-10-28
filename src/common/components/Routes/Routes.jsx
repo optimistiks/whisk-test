@@ -1,13 +1,22 @@
-import React from 'react'
-import Router from 'react-router/lib/Router'
-import Route from 'react-router/lib/Route'
+import React from 'react';
+import {Router, Route} from 'react-router';
+import { Provider } from 'react-redux';
 
-import App from '../App/App.jsx'
-import FeedPage from '../../../feed/pages/FeedPage/FeedPage.jsx'
+import store from '../../modules/store/index';
+
+import App from '../App/App.jsx';
+import FeedPage from '../../../feed/pages/FeedPage/FeedPage.jsx';
 
 
 var Routes = (
-    <Route path="/" component={App} />
+
+    <Provider store={store}>
+        <Router>
+            <Route path="/" component={App}>
+                <Route path="recipes/:category" component={FeedPage}/>
+            </Route>
+        </Router>
+    </Provider>
 );
 
 export default Routes;
