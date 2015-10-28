@@ -1,9 +1,13 @@
 import React from 'react'
+import TextField from 'material-ui/lib/text-field'
+
 
 class FeedSearch extends React.Component {
 
     render() {
-        return <p>FeedSearch</p>;
+        return <div>
+            <TextField hintText="Search for recipes" />
+        </div>;
     }
 
 }

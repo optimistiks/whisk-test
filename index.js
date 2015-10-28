@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import App from './src/common/components/App/App.jsx';
+import Router from 'react-router/lib/Router'
+import Routes from './src/common/components/Routes/Routes.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 //Needed for onTouchTap
@@ -9,4 +10,4 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-ReactDOM.render(<App />, document.getElementById('content'));
+ReactDOM.render(<Router>{Routes}</Router>, document.getElementById('content'));
