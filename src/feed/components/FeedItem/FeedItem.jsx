@@ -12,6 +12,7 @@ class FeedItem extends React.Component {
     }
 
     render() {
+        console.log('render recipe, like is', !!this.props.like);
         return (
             <div className="feed-item">
                 <Card>
@@ -25,7 +26,7 @@ class FeedItem extends React.Component {
                     </CardMedia>
                 </Card>
                 <div className="feed-item__like">
-                    <FontIcon className="material-icons">favorite_border</FontIcon>
+                    <FontIcon className="material-icons">{this.props.like ? 'favorite' : 'favorite_border'}</FontIcon>
                 </div>
             </div>
         );

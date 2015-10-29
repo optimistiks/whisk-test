@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from '../../modules/store/index';
 
 import App from '../App/App.jsx';
-import FeedPage from '../../../feed/pages/FeedPage/FeedPage.jsx';
+import FeedPage from '../../../feed/components/FeedPage/FeedPage.jsx';
 
 
 const Routes = (

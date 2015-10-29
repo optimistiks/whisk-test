@@ -8,7 +8,7 @@ class FeedList extends React.Component {
     render() {
 
         const recipes = this.props.recipes.map((recipe, index) =>
-            (<div key={index} className="col-1-4"><FeedItem recipe={recipe}/></div>)
+            (<div key={index} className="col-1-4"><FeedItem recipe={recipe} like={this.props.likes[recipe.url]}/></div>)
         );
 
         return (<div className="row">

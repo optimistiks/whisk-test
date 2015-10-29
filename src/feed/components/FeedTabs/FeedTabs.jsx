@@ -8,7 +8,6 @@ const FeedTabs = React.createClass({
         mixins: [History],
 
         handleTabChange(value) {
-            console.log('handleTabChange', value);
             this.history.pushState(null, `/recipes/${value}`);
         },
 
