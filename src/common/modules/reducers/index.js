@@ -1,21 +1,9 @@
 import { combineReducers } from 'redux';
-
-const recipes = function (state = [], action) {
-
-    switch (action.type) {
-
-        case 'LOAD_RECIPES':
-            return action.payload;
-
-        default:
-            return state;
-
-    }
-
-};
+import { recipes, likes } from '../../../feed/modules/reducers/index';
 
 const app = combineReducers({
-    recipes
+    recipes,
+    likes
 });
 
 export default app;

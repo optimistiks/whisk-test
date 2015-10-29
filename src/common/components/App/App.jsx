@@ -7,6 +7,7 @@ import {AppBar} from 'material-ui';
 class App extends React.Component {
 
     render() {
+        console.log('App render');
         return (<div className="app-container">
             <AppBar
                 title="Whisk"

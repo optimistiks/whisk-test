@@ -11,10 +11,11 @@ import actionCreators from '../../modules/action-creators/index';
 const ParseComponent = ParseReact.Component(React);
 
 
-class FeedPage extends ParseComponent {
+class FeedPage extends React.Component {
 
     componentWillMount() {
-        this.props.dispatch(actionCreators.loadRecipes(this.props.params.category))
+        this.props.dispatch(actionCreators.loadRecipes(this.props.params.category));
+        this.props.dispatch(actionCreators.loadLikes());
     }
 
     componentWillReceiveProps(nextProps) {
@@ -23,25 +24,22 @@ class FeedPage extends ParseComponent {
         }
     }
 
-    observe(props, state) {
-        console.log('observe is called with', props, state);
-        return {
-            likes: new Parse.Query('Like')
-        };
-    }
-
-    shouldComponentUpdate(nextProps, nextState, third) {
-        console.log('shouldComponentUpdate', nextProps, nextState, third);
-        return true;
+    handleLike(recipeUrl) {
+        if (this.props.likes[recipeUrl]) {
+            this.props.dispatch(actionCreators.dislike(this.props.likes[recipeUrl]));
+        } else {
+            this.props.dispatch(actionCreators.like(recipeUrl));
+        }
     }
 
     render() {
-        console.log('FeedPage render', this.props.params.category, this.props.recipes, this.data.likes);
+        console.log('FeedPage render', this.props);
+
         return (
             <div>
                 <FeedSearch />
                 <FeedTabs category={this.props.params.category}/>
-                <FeedList recipes={this.props.recipes} likes={this.data.likes}/>
+                <FeedList recipes={this.props.recipes} likes={this.props.likes} handleLike={this.handleLike.bind(this)}/>
             </div>
         );
     }

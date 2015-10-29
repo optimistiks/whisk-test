@@ -11,8 +11,11 @@ class FeedItem extends React.Component {
         };
     }
 
+    handleLike(recipeUrl) {
+        this.props.handleLike(recipeUrl);
+    }
+
     render() {
-        console.log('render recipe, like is', !!this.props.like);
         return (
             <div className="feed-item">
                 <Card>
@@ -25,7 +28,7 @@ class FeedItem extends React.Component {
                              style={this.getImgStyle()}></div>
                     </CardMedia>
                 </Card>
-                <div className="feed-item__like">
+                <div className="feed-item__like" onClick={this.handleLike.bind(this, this.props.recipe.url)}>
                     <FontIcon className="material-icons">{this.props.like ? 'favorite' : 'favorite_border'}</FontIcon>
                 </div>
             </div>

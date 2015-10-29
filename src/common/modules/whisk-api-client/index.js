@@ -345,7 +345,8 @@ const client = {
 
         try {
 
-            let response = await Promise.resolve({body: {recipes: payload}});
+            const response = await Promise.resolve({body: {recipes: payload}});
+
             return response.body;
 
         } catch (exception) {
