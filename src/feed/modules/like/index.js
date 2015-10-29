@@ -1,10 +1,11 @@
 import Parse from '../../../common/modules/parse-client/index';
-
+import getCurrentUser from '../../../common/modules/get-current-user/index'
 
 class Like extends Parse.Object {
 
     constructor() {
         super('Like');
+        this.set('user', getCurrentUser());
     }
 
     getRecipeUrl() {

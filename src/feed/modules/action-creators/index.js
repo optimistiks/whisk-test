@@ -2,6 +2,7 @@ import api from '../../../common/modules/whisk-api-client/index';
 import categoryToTerm from '../category-to-term-map/index';
 import Parse from '../../../common/modules/parse-client/index';
 import Like from '../like/index';
+import getCurrentUser from '../../../common/modules/get-current-user/index'
 
 
 const actionCreators = {
@@ -26,6 +27,7 @@ const actionCreators = {
         return async function (dispatch) {
 
             const query = new Parse.Query('Like');
+            query.equalTo('user', getCurrentUser());
 
             try {
 
