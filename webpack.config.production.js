@@ -1,8 +1,9 @@
 var path = require('path');
+var webpack = require("webpack");
+
 
 module.exports = {
     entry: './index.js',
-    devtool: 'source-map',
     output: {
         path: path.join(__dirname, 'www'),
         filename: 'bundle.js'
@@ -18,5 +19,9 @@ module.exports = {
             },
             {test: /\.css$/, loader: 'style!css'}
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };

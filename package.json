@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --profile --colors",
+    "build": "NODE_ENV='production' webpack --progress --profile --colors --config webpack.config.production.js",
+    "analyze": "webpack --json | analyze-bundle-size",
     "watch": "webpack-dev-server --content-base www/ --hot --inline --progress --colors",
     "test": "jest"
   },
@@ -35,16 +36,18 @@
     "css-loader": "^0.21.0",
     "install": "^0.2.2",
     "jest-cli": "^0.6.1",
-    "json-loader": "^0.5.3",
     "npm": "^3.3.9",
     "react-addons-test-utils": "^0.14.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",
+    "webpack-bundle-size-analyzer": "^1.1.0",
     "webpack-dev-server": "^1.12.1"
   },
   "jest": {
     "scriptPreprocessor": "node_modules/babel-jest",
-    "modulePathIgnorePatterns": [ "/read-package-tree/" ],
+    "modulePathIgnorePatterns": [
+      "/read-package-tree/"
+    ],
     "unmockedModulePathPatterns": [
       "node_modules/react",
       "node_modules/react-dom",
