@@ -10,15 +10,9 @@ const actionCreators = {
 
         return async function (dispatch) {
 
-            // Create a new Comment object with some initial data
-/*            ParseReact.Mutation.Create('TestObject', {
-                text: 'Parse <3 React'
-            }).dispatch();*/
-
             try {
                 const response = await api.searchRecipes(categoryToTerm[category]);
-              console.log('action LOAD_RECIPES');
-              dispatch({type: 'LOAD_RECIPES', payload: response.recipes});
+                dispatch({type: 'LOAD_RECIPES', payload: response.recipes});
             } catch (exception) {
                 console.error('LOAD_RECIPES', exception);
             }
@@ -27,67 +21,71 @@ const actionCreators = {
 
     },
 
-  loadLikes: function () {
+    loadLikes: function () {
 
-    return async function (dispatch) {
+        return async function (dispatch) {
 
-      const query = new Parse.Query('Like');
+            const query = new Parse.Query('Like');
 
-      try {
+            try {
 
-        const response = await query.find();
-        console.log('action LOAD_LIKES', response);
-        response.forEach(like => console.log('GOT LIKE', like.getRecipeUrl()));
-        dispatch({type: 'LOAD_LIKES', payload: response})
+                const response = await query.find();
+                dispatch({type: 'LOAD_LIKES', payload: response})
 
-      } catch (exception) {
-        console.error('LOAD_LIKES', exception);
-      }
+            } catch (exception) {
+                console.error('LOAD_LIKES', exception);
+            }
 
-    };
+        };
 
-  },
+    },
 
-  dislike: function (like) {
+    dislike: function (like) {
 
-    return async function (dispatch) {
+        return async function (dispatch) {
 
-      // optimistic update here
-      dispatch({type: 'DISLIKE', payload: like.getRecipeUrl()});
+            // optimistic update here
+            dispatch({type: 'DISLIKE', payload: like.getRecipeUrl()});
 
-      try {
+            try {
 
-        await like.destroy();
+                await like.destroy();
 
-      } catch (exception) {
-        console.error('DISLIKE', exception);
-      }
+            } catch (exception) {
+                console.error('DISLIKE', exception);
+            }
 
-    };
+        };
 
-  },
+    },
 
-  like: function (recipeUrl) {
+    like: function (recipeUrl) {
 
-    return async function (dispatch) {
+        return async function (dispatch) {
 
-      const like = new Like();
-      like.setRecipeUrl(recipeUrl);
+            const like = new Like();
+            like.setRecipeUrl(recipeUrl);
 
-      // optimistic update here
-      dispatch({type: 'LIKE', payload: like});
+            // optimistic update here
+            dispatch({type: 'LIKE', payload: like});
 
-      try {
+            try {
 
-        await like.save();
+                await like.save();
 
-      } catch (exception) {
-        console.error('LIKE', exception);
-      }
+            } catch (exception) {
+                console.error('LIKE', exception);
+            }
 
-    };
+        };
 
-  }
+    },
+
+    search: function (text) {
+
+        return {type: 'SEARCH_TEXT_CHANGE', payload: text};
+
+    }
 
 };
 

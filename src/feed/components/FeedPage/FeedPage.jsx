@@ -1,14 +1,11 @@
 import '../../styles/index.css';
 import React from 'react';
 import Parse from '../../../common/modules/parse-client/index';
-import ParseReact from 'parse-react';
 import { connect } from 'react-redux';
 import FeedSearch from '../FeedSearch/FeedSearch.jsx';
 import FeedTabs from '../FeedTabs/FeedTabs.jsx';
 import FeedList from '../FeedList/FeedList.jsx';
 import actionCreators from '../../modules/action-creators/index';
-
-const ParseComponent = ParseReact.Component(React);
 
 
 class FeedPage extends React.Component {
@@ -32,14 +29,22 @@ class FeedPage extends React.Component {
         }
     }
 
+    handleSearch(event) {
+        this.props.dispatch(actionCreators.search(event.target.value));
+    }
+
     render() {
-        console.log('FeedPage render', this.props);
+
+        const recipes = this.props.recipes.filter(recipe => {
+            return recipe.title.toLowerCase().indexOf(this.props.searchText.toLowerCase()) !== -1;
+        });
 
         return (
             <div>
-                <FeedSearch />
+                <FeedSearch searchText={this.props.searchText} handleSearch={this.handleSearch.bind(this)}/>
                 <FeedTabs category={this.props.params.category}/>
-                <FeedList recipes={this.props.recipes} likes={this.props.likes} handleLike={this.handleLike.bind(this)}/>
+                <FeedList recipes={recipes} likes={this.props.likes}
+                          handleLike={this.handleLike.bind(this)}/>
             </div>
         );
     }

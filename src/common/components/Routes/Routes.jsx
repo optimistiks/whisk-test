@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route} from 'react-router';
+import { Router, Route, Redirect } from 'react-router';
 import { Provider } from 'react-redux';
 
 import store from '../../modules/store/index';
@@ -12,6 +12,7 @@ const Routes = (
 
     <Provider store={store}>
         <Router>
+            <Redirect from="/" to="/recipes/personal"/>
             <Route path="/" component={App}>
                 <Route path="recipes/:category" component={FeedPage}/>
             </Route>

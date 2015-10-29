@@ -13,7 +13,6 @@
   "dependencies": {
     "material-ui": "^0.13.0",
     "parse": "^1.6.7",
-    "parse-react": "^0.5.0",
     "react": "^0.14.0",
     "react-addons-create-fragment": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",
@@ -33,6 +32,9 @@
     "babel-loader": "^5.3.2",
     "babel-runtime": "^5.8.29",
     "css-loader": "^0.21.0",
+    "install": "^0.2.2",
+    "json-loader": "^0.5.3",
+    "npm": "^3.3.9",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"

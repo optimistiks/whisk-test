@@ -1,6 +1,5 @@
 import React from 'react';
-import {RaisedButton, CardTitle, CardMedia, FontIcon} from 'material-ui';
-import Card from 'material-ui/lib/card/card';
+import {RaisedButton, CardTitle, CardMedia, FontIcon, Card} from 'material-ui';
 
 
 class FeedItem extends React.Component {

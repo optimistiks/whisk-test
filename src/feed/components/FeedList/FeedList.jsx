@@ -14,7 +14,7 @@ class FeedList extends React.Component {
         );
 
         return (<div className="row">
-            {recipes.length ? recipes : <CircularProgress mode="indeterminate"/>}
+            {recipes}
         </div>);
     }
 

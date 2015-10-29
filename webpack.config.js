@@ -16,7 +16,8 @@ module.exports = {
                 loader: 'babel',
                 query: {optional: 'runtime', cacheDirectory: true}
             },
-            {test: /\.css$/, loader: 'style!css'}
+            {test: /\.css$/, loader: 'style!css'},
+            {test: /\.json/, loader: 'json'}
         ]
     }
 };

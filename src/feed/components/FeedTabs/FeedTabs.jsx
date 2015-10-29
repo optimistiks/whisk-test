@@ -2,7 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui';
 import {History} from 'react-router';
 
-
+// need to use mixin, so use createClass instead of ES6 class
 const FeedTabs = React.createClass({
 
         mixins: [History],

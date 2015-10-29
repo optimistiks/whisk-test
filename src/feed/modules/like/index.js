@@ -3,18 +3,17 @@ import Parse from '../../../common/modules/parse-client/index';
 
 class Like extends Parse.Object {
 
-  constructor(...args) {
-    console.log('instantiate Like with', args);
-    super('Like');
-  }
+    constructor() {
+        super('Like');
+    }
 
-  getRecipeUrl() {
-    return this.get('recipeUrl');
-  }
+    getRecipeUrl() {
+        return this.get('recipeUrl');
+    }
 
-  setRecipeUrl(recipeUrl) {
-    return this.set('recipeUrl', recipeUrl);
-  }
+    setRecipeUrl(recipeUrl) {
+        return this.set('recipeUrl', recipeUrl);
+    }
 
 }
 
