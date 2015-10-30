@@ -11,6 +11,8 @@ const actionCreators = {
 
         return async function (dispatch) {
 
+            dispatch({type: 'LOAD_RECIPES', payload: []});
+
             try {
                 const response = await api.searchRecipes(categoryToTerm[category]);
                 dispatch({type: 'LOAD_RECIPES', payload: response.recipes});

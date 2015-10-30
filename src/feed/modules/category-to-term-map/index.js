@@ -1,6 +1,6 @@
 export default {
     'personal': 'beer',
-    'seasonal': 'steak',
+    'seasonal': 'beef',
     'popular': 'ham',
     'quick': 'pizza'
 };
