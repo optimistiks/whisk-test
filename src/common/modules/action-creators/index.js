@@ -17,7 +17,6 @@ const actionCreators = {
             try {
 
                 await user.signUp();
-                console.log('User sign up', Parse.User.current());
                 dispatch({type: 'CURRENT_USER_CHANGE', payload: Parse.User.current()});
 
             } catch (exception) {

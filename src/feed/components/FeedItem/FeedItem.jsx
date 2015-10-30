@@ -21,7 +21,7 @@ class FeedItem extends React.Component {
                     <CardMedia overlay={
                         <CardTitle
                             title={this.props.recipe.title}
-                            subtitle={this.props.recipe.site.displayName} />
+                            subtitle={this.props.recipe.site.name} />
                         }>
                         <div className="feed-item__img"
                              style={this.getImgStyle()}></div>

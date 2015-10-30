@@ -1,6 +1,6 @@
 export default {
-    'personal': 'beef',
-    'seasonal': 'pumpkin',
-    'popular': 'orange',
-    'quick': 'apple'
+    'personal': 'beer',
+    'seasonal': 'steak',
+    'popular': 'ham',
+    'quick': 'pizza'
 };

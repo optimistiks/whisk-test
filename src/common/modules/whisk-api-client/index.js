@@ -12,6 +12,10 @@ const client = {
         try {
 
             const response = await agent.get(config.WHISK_API_URL).query({term: term}).end();
+            // pull only unique recipes (by url) from the response
+            const recipesByUrl = {};
+            response.body.recipes.forEach(recipe => recipesByUrl[recipe.url] = recipe);
+            response.body.recipes = Object.keys(recipesByUrl).map(recipeUrl => recipesByUrl[recipeUrl]);
             return response.body;
 
         } catch (exception) {
